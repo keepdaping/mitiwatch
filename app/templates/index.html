@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MitiWatch: Forest Loss Monitor</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <aside id="panel">
+    <h1>🌳 MitiWatch</h1>
+    <p class="sub">Satellite forest-loss monitor · <span id="reserve">Mabira CFR</span></p>
+
+    <div class="cards">
+      <div class="card"><span class="label">Forest before</span><span id="forest" class="value">–</span></div>
+      <div class="card loss"><span class="label">New loss</span><span id="loss" class="value">–</span></div>
+      <div class="card"><span class="label">Patches</span><span id="count" class="value">–</span></div>
+    </div>
+    <p id="periods" class="muted"></p>
+
+    <h2>Largest clearings</h2>
+    <ol id="list"><li class="muted">Loading…</li></ol>
+
+    <p id="notice" class="notice" hidden></p>
+    <p class="muted small">Data: Copernicus Sentinel-2 via Google Earth Engine. Method: NDVI change detection (MVP).</p>
+  </aside>
+  <main id="map"></main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
